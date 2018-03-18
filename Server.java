@@ -6,10 +6,11 @@ import java.util.Scanner;
 public class MyServer {
 
 	public static void main(String[] args) throws Exception {
-		ServerSocket ss = new ServerSocket(9999);
+		ServerSocket ss = new ServerSocket(9999); //this will create a server at 9999 port
+		// port between 0 and 1201 are reserved so don't use them
 		System.out.println("Server Started!");
 		while(1!=2) {
-			Socket s = ss.accept();
+			Socket s = ss.accept(); // this will receive any communication from the client
 			DataInputStream din = new DataInputStream(s.getInputStream());
 			String getMessage = din.readUTF();
 			System.out.println("Client: " + getMessage);
